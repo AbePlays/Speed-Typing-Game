@@ -2,6 +2,24 @@ const API_URL = "http://api.quotable.io/random";
 const quoteDisplayElement = document.getElementById("quoteDisplay");
 const quoteInputElement = document.getElementById("quoteInput");
 
+quoteInputElement.addEventListener("input", () => {
+  const arrayQuote = quoteDisplayElement.querySelectorAll("span");
+  const arrayValue = quoteInputElement.value.split("");
+  arrayQuote.forEach((char, index) => {
+    const character = arrayValue[index];
+    if (character == null) {
+      char.classList.remove("correct");
+      char.classList.remove("incorrect");
+    } else if (character === char.innerText) {
+      char.classList.add("correct");
+      char.classList.remove("incorrect");
+    } else {
+      char.classList.remove("correct");
+      char.classList.add("incorrect");
+    }
+  });
+});
+
 function getRandomQuote() {
   return fetch(API_URL)
     .then((response) => response.json())
