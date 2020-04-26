@@ -18,4 +18,16 @@ body,
 
 .container {
   background-color: #f0db4f;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 700px;
+  max-width: 90%;
+}
+
+.timer {
+  position: absolute;
+  top: 2rem;
+  font-size: 3rem;
+  color: #f0db4f;
+  font-weight: bold;
 }
